@@ -1,0 +1,202 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <style>	
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        
+    }	
+        .content {
+            max-width: 960px;
+            margin-left: auto; 
+            margin-right: auto;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        .redBall, .yellowBall, .greenBall, .brownBall, .blueBall, .pinkBall, .blackBall, .foulBall {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            display: inline-block;
+
+        }
+        .redBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, red 3%, darkred 60%, red 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, red 3%, darkred 60%, red 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, red 3%, darkred 60%, red 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, red 3%, darkred 60%, red 100%);          
+        }
+        .yellowBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, yellow 3%, rgb(151, 151, 0) 60%, yellow 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, yellow 3%, rgb(151, 151, 0)  60%, yellow 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, yellow 3%, rgb(151, 151, 0)  60%, yellow 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, yellow 3%, rgb(151, 151, 0)  60%, yellow 100%); 
+        }
+        .greenBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, rgb(1, 167, 1) 3%, rgb(0, 44, 0) 60%, rgb(1, 167, 1) 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, rgb(1, 167, 1) 3%, rgb(0, 44, 0)  60%, rgb(1, 167, 1) 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, rgb(1, 167, 1) 3%, rgb(0, 44, 0)  60%, rgb(1, 167, 1) 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, rgb(1, 167, 1) 3%, rgb(0, 44, 0)  60%, rgb(1, 167, 1) 100%); 
+        }        
+        .brownBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, brown 3%, rgb(70, 20, 20) 60%, brown 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, brown 3%,  rgb(70, 20, 20) 60%, brown 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, brown 3%,  rgb(70, 20, 20)  60%, brown 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, brown 3%,  rgb(70, 20, 20) 60%, brown 100%); 
+        }
+        .blueBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, rgb(118, 156, 228) 3%, blue 60%, rgb(118, 156, 228)  100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, rgb(118, 156, 228)  3%, blue 60%, rgb(118, 156, 228) htblue 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, rgb(118, 156, 228)  3%, blue 60%, rgb(118, 156, 228)  100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, rgb(118, 156, 228)  3%, blue 60%, rgb(118, 156, 228)  100%); 
+        }
+        .pinkBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, pink 3%, rgb(255, 65, 96) 60%, pink 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, pink 3%, rgb(255, 65, 96) 60%, pink 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, pink  3%, rgb(255, 65, 96) 60%, pink 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, pink 3%, rgb(255, 65, 96) 60%, pink  100%); 
+        }
+        .blackBall {
+            background: -webkit-radial-gradient(65% 15%, circle, white 1px, darkgrey 3%, black 60%, darkgrey 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, white 1px, darkgrey 3%, black 60%, darkgrey 100%); 
+            background: -o-radial-gradient(65% 15%, circle, white 1px, darkgrey  3%, black 60%, darkgrey 100%);
+            background: radial-gradient(circle at 65% 15%, white 1px, darkgrey 3%, black 60%, darkgrey  100%); 
+        }
+		.foulBall {
+			background: -webkit-radial-gradient(65% 15%, circle, lightgrey 1px, lightgrey 3%, grey 60%, lightgrey 100%); 
+            background: -moz-radial-gradient(65% 15%, circle, lightgrey 1px, lightgrey 3%, grey 60%, lightgrey 100%); 
+            background: -o-radial-gradient(65% 15%, circle, lightgrey 1px, lightgrey  3%, grey 60%, lightgrey 100%);
+            background: radial-gradient(circle at 65% 15%, lightgrey 1px, lightgrey 3%, grey 60%, lightgrey  100%); 
+        font-weight: bolder;
+		}
+    </style>
+
+</head>
+<body>
+    <div>
+        <div id = "contentDiv" class = "content">
+            <table id="ballsTable" border="1px">
+                <tr><th colspan="2">Score</th></tr>
+                <tr>
+                    <td><div class="redBall" OnClick=addScore(1)></div></td>
+                    <td><div class="foulBall">F</div></td>
+                </tr>
+                <tr>
+                    <td><div class="yellowBall" OnClick=addScore(2)></div></td>
+                    <td><div class="greenBall" OnClick=addScore(3)></div> </td>
+                </tr>
+                <tr>
+                    <td><div class="brownBall" OnClick=addScore(4)></div></td>
+                    <td><div class = "blueBall" OnClick=addScore(5)></div></td>
+                </tr>
+
+                <tr>
+                    <td><div class="pinkBall" OnClick=addScore(6)></div></td>
+                    <td><div class="blackBall" OnClick=addScore(7)></div></td>
+                </tr>
+            </table>
+        </div>
+        <div id = "controlsDiv" class= "content">
+            <table border="1">
+                <tr><td colspan="2"><p id = "totalScore">Total - </p></td></tr>
+                <tr><td colspan="2"><p id = "lastScore">Last Score - </p></td></tr>
+                <tr><td colspan="2"><p id = "break">Break - </p></td></tr>
+                <tr><th colspan="2"><button type="button" id="bUndo"  onclick=undoLastScore()>Undo</button></th></tr>
+                <tr><th colspan="2"><button type="button" id="bClear" onclick=resetScoreboard()>Reset</button></th></tr>
+                <tr><td colspan="2"><textarea  id = "board" rows = "20" cols = "10"></textarea></td></tr>
+            </table>
+            <table id="ballCounterTable">
+
+            </table>
+        </div>
+    </div>
+</body>
+
+
+</html>
+@section {
+<script>
+        var scoreList = [];
+        var total = 0;
+        var ballTable = document.getElementById("ballCounterTable");
+
+        function addScore(score) {
+            scoreList.push(score);
+            updateBoard(score);
+            showhideUndoButton("show");
+        }
+
+        function resetScoreboard() {
+            scoreList = [];
+            var ballTable = document.getElementById("ballCounterTable");
+            document.getElementById("board").value = "";
+            document.getElementById("totalScore").innerHTML = "Total - ";
+            document.getElementById("lastScore").innerHTML = "Last Score - ";
+            showhideUndoButton("show");
+            for(var i = ballTable.rows.length - 1; i > -1; i--) {
+                    ballTable.deleteRow(i);
+                }
+        }
+        function showhideUndoButton(state) {
+            var undoButton = document.getElementById("bUndo");
+            if (state == "show") {
+                undoButton.style.display = "inline";
+            }
+            if (state == "hide") {
+                undoButton.style.display = "none";
+            }
+        }
+
+        function undoLastScore() {
+            document.getElementById("ballCounterTable").deleteRow(-1);
+            scoreList.splice(-1,1);
+            updateBoard();
+            showhideUndoButton("hide");
+        }
+
+        function updateBoard(iScore) {
+            if (!iScore ==''){
+            var ballTable = document.getElementById("ballCounterTable");
+            var newRow = ballTable.insertRow(ballTable.rows.length);
+            var newCell = newRow.insertCell(0);
+            if (iScore ==1) {
+                newCell.className="redBall";}
+            if (iScore ==2) {
+                newCell.className="yellowBall";}
+            if (iScore ==3) {
+                newCell.className="greenBall";}
+            if (iScore ==4) {
+                newCell.className="brownBall";}
+            if (iScore ==5) {
+                newCell.className="blueBall";}
+            if (iScore ==6) {
+                newCell.className="pinkBall";}
+            if (iScore ==7) {
+                newCell.className="blackBall";}
+            }
+
+
+
+            document.getElementById("board").value = scoreList.join("\n");
+            total = 0;
+            for(var i = 0, len = scoreList.length; i < len; i++) {
+                total += scoreList[i];
+            }
+            document.getElementById("totalScore").innerHTML = "Total - " + total;
+
+            if (scoreList.length > 0) {
+                document.getElementById("lastScore").innerHTML = "Last Score - " + scoreList[scoreList.length -1];
+                }
+                 else  document.getElementById("lastScore").innerHTML = "Last Score - 0";
+        }
+    </script>
+}
