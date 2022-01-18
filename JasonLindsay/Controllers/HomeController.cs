@@ -26,5 +26,12 @@ namespace JasonLindsay.Controllers
 
             return View();
         }
+
+        public ActionResult SnookerScoreboard()
+        {
+            ViewBag.Message = "Scoreboard";
+
+            return View();
+        }
     }
 }

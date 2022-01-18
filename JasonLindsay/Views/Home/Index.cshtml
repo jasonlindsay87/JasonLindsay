@@ -4,8 +4,8 @@
 
 <div class="jumbotron">
     <h1>Jason Lindsay</h1>
-    <p class="lead">Aplications Developer</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p class="lead">Application Developer</p>
+    <p><a href="http://jasonlindsay.co.uk" class="btn btn-primary btn-lg" target="_blank">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -23,6 +23,6 @@
         <h2>Portfolio</h2>
         <p>Projects.</p>
         <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
-        <p><a class="btn btn-default" href="~/Views/Home/SnookerScoreboard.cshtml">Scoreboard &raquo;</a></p>
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("Scoreboard &raquo;"), "SnookerScoreboard", "", new { @class="btn btn-default", @target="_blank"})</p>
     </div>
 </div>
