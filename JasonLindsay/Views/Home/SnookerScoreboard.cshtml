@@ -2,7 +2,7 @@
     Layout = null;
 }
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/scoreboard.js"></script>
+<script type="text/javascript" src="~/Scripts/scoreboard.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!DOCTYPE html>
 
@@ -10,69 +10,115 @@
 <head>
     <link rel="stylesheet" href="~/Content/scoreboard.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width" />
+
     <title>Scoreboard</title>
 
 </head>
-<body>
-    <div id="tableNumContainer">
-        <div>
-            <label>Enter table number</label>
-            <input type="number" id="tableNumberInput" />
-            <button id="enterTableNumBtn" class="btn-primary">Enter</button>
-        </div>
-    </div>
-    <div id="playerNamesContainer" style="display:none;">
-        <p>Enter player names</p>
-        <input id="p1Name" />
-        <input id="p2Name" />
-        <button id="enterPlayerNamesBtn" class="btn-primary">Enter</button>
-    </div>
-    <div id="scoreboardContainer"  style="display:none;">
-        <div id="contentDiv" class="content">
-            <table id="ballsTable" border="1">
-                <tr>
-                    <th>Table<span id="tableNumSpan"></span></th>
-                </tr>
-                <tr>
-                    <td><span id="p1NameSpan"></span></td>
-                    <td><span id="p2NameSpan"></span></td>
-                </tr>
-                <tr><th colspan="2">Score</th></tr>
-                <tr>
-                    <td><div class="redBall" OnClick=addScore(1)></div></td>
-                    <td><div class="foulBall">F</div></td>
-                </tr>
-                <tr>
-                    <td><div class="yellowBall" OnClick=addScore(2)></div></td>
-                    <td><div class="greenBall" OnClick=addScore(3)></div> </td>
-                </tr>
-                <tr>
-                    <td><div class="brownBall" OnClick=addScore(4)></div></td>
-                    <td><div class = "blueBall" OnClick=addScore(5)></div></td>
-                </tr>
+<body class="nightmode">
+    <div id="game">
+        <header>
+            <div class="menu">
+                 <i id="helpButton" class="fa fa-question-circle" title="Help"></i>
+            </div>
+            <div class="title">SNooker Scoreboard</div>
+            <div class="menu">
+                <i id="statsButton" class="fa fa-dashboard" title="Statistics"></i>
+                <i id="settingButton" class="fa fa-cog" title="Settings"></i>
+            </div>
 
-                <tr>
-                    <td><div class="pinkBall" OnClick=addScore(6)></div></td>
-                    <td><div class="blackBall" OnClick=addScore(7)></div></td>
-                </tr>
-            </table>
+        </header>
+
+        <div class="time">
+            <div class="times tableTime">
+                <span>Table </span> 
+                <span class="table-number"></span>
+                <span id="tableTime" style="display:none;"></span>
+            </div>
+            <div class="times currentTime">
+                <span id="time"></span>
+            </div>
+
+
         </div>
-        <div id = "controlsDiv" class= "content">
-            <table border="1">
-                <tr><td colspan="2"><p id = "totalScore">Total - </p></td></tr>
-                <tr><td colspan="2"><p id = "lastScore">Last Score - </p></td></tr>
-                <tr><td colspan="2"><p id = "break">Break - </p></td></tr>
-                <tr><th colspan="2"><button type="button" id="bUndo"  onclick=undoLastScore()>Undo</button></th></tr>
-                <tr><th colspan="2"><button type="button" id="bClear" onclick=resetScoreboard()>Reset</button></th></tr>
-                <tr><td colspan="2"><textarea  id = "board" rows = "20" cols = "10"></textarea></td></tr>
-            </table>
+
+        <div id="tableNumContainer">
+            <div class="input">
+                <label>Enter table number</label>
+            </div>
+            <div class="input">
+                <input type="number" id="tableNumberInput" />
+            </div>
+            <div class="input">
+                <button id="enterTableNumBtn" class="btn-primary">Enter</button>
+            </div>
+        </div>
+
+        <div id="playerNamesContainer" style="display:none;">
+            <p>Enter player names</p>
+            <div>
+                <input id="p1Name" />
+                <input id="p2Name" />
+                <button id="enterPlayerNamesBtn" class="btn-primary">Enter</button>
+            </div>
+        </div>
+
+        <div id="scoreboardContainer" style="display:none;">
+            <div id="scores">
+                <table id="scoresTable" border="1">
+                    <tr>
+                        <td class="name" colspan="2">
+                            <p class="player1-name">&nbsp;</p>
+                        </td>
+                        <td class="name" colspan="2">
+                            <p class="player2-name">&nbsp;</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="2"><p id="totalScore">Total</p></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><button type="button" id="bUndo"  onclick=undoLastScore()>Undo</button></td></tr>
+                    <tr>
+                        <td colspan="4"><button type="button" id="bClear" onclick=resetScoreboard()>Reset</button></td></tr>
+                    <tr>
+                        <td colspan="4"><textarea  id="board" rows="20" cols="10"></textarea></td></tr>
+                </table>
+
+            </div>
+            <div id="ballSelector">
+                <table id="ballsTable" border="1">
+                    <tr>
+                        <td><div class="redBall" OnClick=addScore(1)></div></td>
+                        <td><div class="foulBall">F</div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="yellowBall" OnClick=addScore(2)></div></td>
+                        <td><div class="greenBall" OnClick=addScore(3)></div> </td>
+                    </tr>
+                    <tr>
+                        <td><div class="brownBall" OnClick=addScore(4)></div></td>
+                        <td><div class = "blueBall" OnClick=addScore(5)></div></td>
+                    </tr>
+
+                    <tr>
+                        <td><div class="pinkBall" OnClick=addScore(6)></div></td>
+                        <td><div class="blackBall" OnClick=addScore(7)></div></td>
+                    </tr>
+                </table>
+
+
             <table id="ballCounterTable">
 
-            </table>
+                </table>
+            </div>
         </div>
+
+
+
     </div>
 </body>
 
